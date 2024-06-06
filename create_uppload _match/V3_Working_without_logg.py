@@ -51,16 +51,16 @@ def get_team_match_id_by_timestamp_and_by_team_id(team1_id,team2_id, date, cur):
 
 # Get the player ID of the players playing a match
 def get_player_id(player1_name, player2_name, player3_name, player4_name, cur):
-        cur.execute("SELECT player_id FROM player WHERE first_name=%s", (player1_name,))
+        cur.execute("SELECT player_id FROM player WHERE last_name=%s", (player1_name,))
         player1_id = cur.fetchone()[0]
 
-        cur.execute("SELECT player_id FROM player WHERE first_name=%s", (player2_name,))
+        cur.execute("SELECT player_id FROM player WHERE last_name=%s", (player2_name,))
         player2_id = cur.fetchone()[0]
 
-        cur.execute("SELECT player_id FROM player WHERE first_name=%s", (player3_name,))
+        cur.execute("SELECT player_id FROM player WHERE last_name=%s", (player3_name,))
         player3_id = cur.fetchone()[0]
 
-        cur.execute("SELECT player_id FROM player WHERE first_name=%s", (player4_name,))
+        cur.execute("SELECT player_id FROM player WHERE last_name=%s", (player4_name,))
         player4_id = cur.fetchone()[0]
 
         # Return a tuple containing all the player IDs

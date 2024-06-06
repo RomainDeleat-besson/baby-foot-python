@@ -7,7 +7,7 @@ if ENV == 'dev':
         'host': "localhost",
         'database': "babyfoot",
         'user': "postgres",
-        'password': "**"**
+        'password': ""
     }
 else: 
 
@@ -15,9 +15,9 @@ else:
     parsed_uri = urlparse(uri)
 
     DATABASE_CONFIG = {
-        'host': "****",
-        'database': "****",
-        'user': "****",
-        'password': "****",
-        'port': "****"
+        'host': "localhost",
+        'database': "babyfoot",
+        'user': "adminbabyfoot",
+        'password': "0000",
+        'port': "5432"
     } 
