@@ -55,19 +55,23 @@
 <!-- Second table -->
 <table>
     <tr>
-        <th>Players </th>
+        <th>Players</th>
         <th>Old Rating</th>
         <th>Evolution</th>
         <th>New Rating</th>
-
     </tr>
     {% for player in player_rat_bef_and_aft %}
     <tr>
         <td>{{ player[1] }}</td>
-        <td style="text-align:center">{{ player[2] }}</td>
-        <td style="text-align:center">{% if player[3] - player[2] > 0 %}+{% endif %}{{ player[3] - player[2] }}</td>
-        <td style="text-align:center">{{ player[3] }}</td>
-      </tr>
+        <td style="text-align:center">{{ player[2] if player[2] is not none else 1500 }}</td>
+        <td style="text-align:center">
+            {% set old_rating = player[2] if player[2] is not none else 1500 %}
+            {% set new_rating = player[3] if player[3] is not none else 1500 %}
+            {% set evolution = new_rating - old_rating %}
+            {% if evolution > 0 %}+{% endif %}{{ evolution }}
+        </td>
+        <td style="text-align:center">{{ player[3] if player[3] is not none else 1500 }}</td>
+    </tr>
     {% endfor %}
 </table>
 
